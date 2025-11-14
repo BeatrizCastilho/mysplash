@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Splash - Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Satisfy&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #115B66;
+      --secondary: #115B66;
+      --bg: linear-gradient(135deg, #defaff, #defaff);
+      --text: #115B66;
+      --white: #115B66;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #B7ECF2, #B7ECF2);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Libre Baskerville', serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      margin-left: 0%;
+    }
+
+    nav ul li a:hover {
+      color: #71e2fe;
+      transform: scale(1.1);
+    }
+  .hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  }
+    .hero h1 {
+      font-family: "Lora", serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    .destaque {
+    padding: 80px 20px;
+    text-align: center;
+    background: #DFF6FA;
+}
+
+.tag {
+    font-size: 18px;
+    color: #0d4f50;
+    font-weight: bold;
+}
+
+.titulo-destaque {
+    font-size: 36px;
+    margin: 20px 0;
+    color: #0d4f50;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.conteudo-destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.imagem-produto img {
+    width: 320px;
+    border-radius: 16px;
+}
+
+.texto-produto {
+    max-width: 380px;
+    text-align: left;
+}
+
+.descricao {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.preco {
+    font-size: 28px;
+    color: #0d4f50;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-destaque {
+    background-color: #0d4f50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-destaque:hover {
+    opacity: 0.8;
+}
+
+    .hero button {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border: none;
+      color: white;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .add {
+      display: block;
+      margin: 0 15px 20px;
+      background: rgb(144, 211, 200);
+      color: rgb(20, 114, 100);
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #B7ECF2;
+      font-size: 0.9rem;
+      color: #115B66;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <div style="margin-left: -5px;" class="logo"><img src="../logo.jpg" alt="" style="width: 15%;"></style>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="catalogo.html">CATÁLOGO</a></li>
+        <li><a href="envio.html">ENVIO</a></li>
+        <li><a href="rodape.html">CONTATO</a></li>
+        <li><a href="carrinho.html">🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 style="color: #115B66;">My Splash</h1>
+    <p>Descubra fragrâncias que refletem quem você é. 
+      Personalize, sinta e viva sua essência</p>
+    <button ><a href="personalizar.html" style="color: #B7ECF2; text-decoration: none;">PERSONALIZAR AGORA</a></button>
+  </section>
+
+  <section class="destaque">
+    <span class="tag">Destaque</span>
+
+    <h2 class="titulo-destaque">Cosmic Wave</h2>
+
+    <div class="conteudo-destaque">
+
+        <div class="imagem-produto">
+            <img src="/1000148498.jpg" alt="Produto em destaque">
+        </div>
+
+        <div class="texto-produto">
+            <p class="descricao">
+                Frescor aquático com um toque floral vibrante. Leve, marcante e moderna.
+            </p>
+
+            <p class="preco">R$ 59,90</p>
+
+            <a class="add" href="/catalogo.html">ver produto</a>
+        </div>
+
+        
+    </div>
+</section>
+
+  <footer>
+    © 2025 My Splash - Todos os direitos reservados.
+  </footer>
+
+  
+
+</body>
+</html>

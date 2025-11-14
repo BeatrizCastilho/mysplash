@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f0fa;
+            color:#115B66;;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #65c2c2;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 15%;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #ffffff;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #B7ECF2, #B7ECF2);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+     margin-bottom: 80px;
+    }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #333;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #00a7ad;
+            color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #008087;
+        }
+        .message {
+            color: #ffffff;
+            margin-top: 15px;
+            display: none;
+        }
+
+           nav {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+        nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      margin-left: 10px;
+    }
+
+    nav ul li a:hover {
+      color: #71e2fe;
+      transform: scale(1.1);
+    }
+
+   
+    
+
+    </style>
+</head>
+<body>
+
+    <header>
+    <div style="margin-left: 30px;"><img src="../logo.jpg" alt="" style="width: 15%;"></style>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html" style="font-family: 'Libre Baskerville', serif;  ">HOME</a></li>
+        <li><a href="catalogo.html" style="font-family: 'Libre Baskerville', serif; ">CATÁLOGO</a></li>
+        <li><a href="envio.html" style="font-family: 'Libre Baskerville', serif;">ENVIO</a></li>
+        <li><a href="rodape.html" style="font-family: 'Libre Baskerville', serif; ">CONTATO</a></li>
+        <li><a href="carrinho.html" style="margin-right: 15px;">🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button onclick="submitForm()">Send Message</button>
+            <p class="message" id="successMessage">Thank you for your message! We'll get back to you soon.</p>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>

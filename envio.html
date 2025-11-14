@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Splash - Envio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Satisfy&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #29b5ab;
+      --secondary-color: #00fffb;
+      --accent-color: #71e2fe;
+      --text-color: #333;
+      --bg-color: #d0e8ff;
+      --white: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --shadow-hover: rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      font-family: 'Libre Baskerville', serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #B7ECF2, #B7ECF2);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    header .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #115B66;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    nav ul li a:hover {
+      color: #71e2fe;
+      transform: scale(1.1);
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 120px auto 30px;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px var(--shadow);
+      animation: fadeInUp 0.6s ease;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: clamp(28px, 5vw, 36px);
+    }
+
+    .container p {
+      text-align: center;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      margin-top: 20px;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #00a39b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 95, 163, 0.3);
+    }
+
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #listaPedidos {
+      background: #eef7ff;
+      border: 1px dashed var(--primary-color);
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+
+    #mensagem {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .success {
+      color: #28a783;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+
+    .error {
+      color: #dc3545;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      padding: 12px 25px;
+      background: var(--primary-color);
+      color: var(--white);
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background: #00a398;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .container {
+        margin: 100px 20px 30px;
+        padding: 20px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="../logo.jpg" alt="Logo My Splash" style="width: 15%;">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="home.html">HOME</a></li>
+      <li><a href="catalogo.html">CATÁLOGO</a></li>
+      <li><a href="envio.html">ENVIO</a></li>
+      <li><a href="rodape.html">CONTATO</a></li>
+      <li><a href="carrinho.html">🛒</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1 style="font-family: 'Libre Baskerville', serif;">My Splash</h1>
+  <p>Finalizar Pedido - Informações para Envio</p>
+
+  <h2 style="font-family: 'Libre Baskerville', serif;">Pedidos no Carrinho</h2>
+  <div id="listaPedidos"></div>
+
+  <h2 style="font-family: 'Libre Baskerville', serif;">Informações para Envio</h2>
+  <form id="formEnvio">
+    <label for="nomeCliente">Nome completo:</label>
+    <input type="text" id="nomeCliente" placeholder="Seu nome completo" required>
+
+    <label for="telefone">WhatsApp:</label>
+    <input type="tel" id="telefone" placeholder="(99) 99999-9999" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" placeholder="seu@email.com" required>
+
+    <label for="endereco">Endereço completo:</label>
+    <textarea id="endereco" rows="3" placeholder="Rua, número, bairro, cidade, estado, CEP" required></textarea>
+
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" placeholder="00000-000" required>
+
+    <button type="button" id="btnCalcularFrete" style="margin-top:10px;">Calcular Frete</button>
+
+    <div id="resultadoFrete" style="margin-top:15px; padding:12px; background:#eef7ff; border-radius:8px; font-weight:600; display:none;"></div>
+
+    <button type="button" id="btnFinalizarPedido">Finalizar Pedido</button>
+  </form>
+
+  <div id="mensagem"></div>
+</div>
+
+<div style="text-align:center; margin: 30px 0;">
+  <a href="home.html" class="back-btn">Voltar para a Página Inicial</a>
+</div>
+
+<footer>
+  <p>© 2025 My Splash - Todos os direitos reservados</p>
+</footer>
+
+<script>
+
+  const carrinhoParaEnvio = JSON.parse(localStorage.getItem("carrinhoParaEnvio")) || [];
+  const listaPedidos = document.getElementById("listaPedidos");
+  const precoUnitario = 59.90;
+
+  if (carrinhoParaEnvio.length === 0) {
+    listaPedidos.innerHTML = "<p style='color:#999; text-align:center;'>Nenhum produto no carrinho.</p>";
+  } else {
+    let totalItens = 0;
+    let subtotal = 0;
+    let html = "<ul style='padding-left:20px; list-style:none;'>\n";
+
+    carrinhoParaEnvio.forEach(item => {
+      const valorItem = item.quantidade * precoUnitario;
+      totalItens += item.quantidade;
+      subtotal += valorItem;
+
+      html += `
+        <li style="margin-bottom:12px; padding:10px; background:#f8fdff; border-radius:8px; border-left:4px solid var(--primary-color);">
+          <strong>${item.nome}</strong><br>
+          Quantidade: <strong>${item.quantidade}</strong><br>
+          Valor: R$ ${valorItem.toFixed(2).replace(".", ",")}
+        </li>\n`;
+    });
+
+    html += "</ul>\n";
+    html += `<p style="margin-top:15px; font-weight:bold; text-align:right;">
+               Subtotal: R$ ${subtotal.toFixed(2).replace(".", ",")} (${totalItens} item${totalItens > 1 ? 'ns' : ''})
+             </p>`;
+
+    listaPedidos.innerHTML = html;
+    window.subtotalPedido = subtotal;
+  }
+
+  document.getElementById("btnCalcularFrete").addEventListener("click", function () {
+    let cep = document.getElementById("cep").value.replace(/\D/g, "");
+
+    if (cep.length !== 8) {
+      alert("Digite um CEP válido (8 dígitos).");
+      return;
+    }
+
+    const primeiroDigito = cep.charAt(0);
+    let frete = 0;
+
+    if (["0", "1", "2"].includes(primeiroDigito)) frete = 15;
+    else if (["8", "9"].includes(primeiroDigito)) frete = 20;
+    else if (["7"].includes(primeiroDigito)) frete = 22;
+    else if (["4", "5", "6"].includes(primeiroDigito)) frete = 25;
+    else if (["3"].includes(primeiroDigito)) frete = 28;
+    else frete = 35;
+
+    const box = document.getElementById("resultadoFrete");
+    box.style.display = "block";
+    box.innerHTML = `
+      <strong>Frete Calculado:</strong> R$ ${frete.toFixed(2).replace(".", ",")}<br>
+      <strong>Total com frete:</strong> R$ ${(window.subtotalPedido + frete).toFixed(2).replace(".", ",")}
+    `;
+
+    window.freteCalculado = frete;
+  });
+
+  document.getElementById("btnFinalizarPedido").addEventListener("click", function () {
+    const nome = document.getElementById("nomeCliente").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const endereco = document.getElementById("endereco").value.trim();
+    const cep = document.getElementById("cep").value.trim();
+
+    if (!nome || !telefone || !email || !endereco || !cep) {
+      mostrarMensagem("Preencha todos os campos!", "error");
+      return;
+    }
+
+    if (!window.freteCalculado) {
+      mostrarMensagem("Calcule o frete antes de finalizar!", "error");
+      return;
+    }
+
+    let mensagem = `*NOVO PEDIDO - My Splash*\n\n`;
+    mensagem += `*Cliente:* ${nome}\n`;
+    mensagem += `*WhatsApp:* ${telefone}\n`;
+    mensagem += `*E-mail:* ${email}\n`;
+    mensagem += `*Endereço:* ${endereco}\n`;
+    mensagem += `*CEP:* ${cep}\n\n`;
+    mensagem += `*Itens do Pedido:*\n`;
+
+    carrinhoParaEnvio.forEach(item => {
+      mensagem += `• ${item.nome} - ${item.quantidade}x - R$ ${(item.quantidade * precoUnitario).toFixed(2)}\n`;
+    });
+
+    const total = window.subtotalPedido + window.freteCalculado;
+    mensagem += `\n*Subtotal:* R$ ${window.subtotalPedido.toFixed(2)}\n`;
+    mensagem += `*Frete:* R$ ${window.freteCalculado.toFixed(2)}\n`;
+    mensagem += `*TOTAL:* R$ ${total.toFixed(2)}\n`;
+
+    
+    mostrarMensagem("Pedido enviado com sucesso! Redirecionando...", "success");
+
+    setTimeout(() => {
+      localStorage.removeItem("carrinho");
+      localStorage.removeItem("carrinhoParaEnvio");
+      window.location.href = "home.html";
+    }, 2000);
+  });
+
+  function mostrarMensagem(texto, tipo) {
+    const msg = document.getElementById("mensagem");
+    msg.textContent = texto;
+    msg.className = tipo;
+  }
+
+  document.getElementById("telefone").addEventListener("input", function (e) {
+    let v = e.target.value.replace(/\D/g, "");
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+    v = v.replace(/(\d{5})(\d)/, "$1-$2");
+    e.target.value = v.substring(0, 15);
+  });
+
+  document.getElementById("cep").addEventListener("input", function (e) {
+    let v = e.target.value.replace(/\D/g, "");
+    v = v.replace(/^(\d{5})(\d)/, "$1-$2");
+    e.target.value = v.substring(0, 9);
+  });
+</script>
+
+</body>
+</html>
